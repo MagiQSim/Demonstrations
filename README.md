@@ -1,4 +1,10 @@
 # Demonstrations
-We demonstrate a prototype of our MagiQ Simulator
+At MagiQSim we use and develop polytope-based algorithms for classically simulating quantum computations. Most people are familiar with the circuit model of quantum computation in which basic quantum gates (e.g., Hadamard, phase, CNOT, etc.) are applied to an initial quantum state after which the resulting more complex quantum state is measured, qubit by qubit, in a particular direction, or measurement basis. At MagiQSim we tend to deal with an alternative but equivalent computational model, called measurement-based quantum computation. While in the circuit model the computational resource that underlies full quantum advantage is in the quantum gates, such as the so-called $T$ or $\pi/8$ gate, 
 
-make changes. make more changes.
+
+The key idea is that quantum states can be seen as points in a Euclidean space (higher-dimesional generalizations of our flat three-dimensional space) and our simulation polytopes $P$ are subsets of that Euclidean space that enclose some (or all) of those quantum states. Quantum states can then be decomposed as probabilistic (or quasiprobabilistic) mixtures of the vertices of $P$. The time evolution of the quantum state is, in turn, determined by updating the vertices in the decomposition. Typically we deal with two types of updating: deterministic updates under the action of Clifford unitaries and probabilistic updates due to quantum measurements, usually Pauli measurements. In most cases we are interested in a sequence of measurements which drives the quantum computation, which results in a sequence of probabilistic (or quasiprobabilistic) updates. While there are some key differences, the general scheme is very reminiscent of the kinds of random (or stochastic) processes used in classical physics. 
+
+An early and important example of polytope-based classical simulation algorithms comes from stabilizer theory in qubit quantum mechanics. There you have the so-called stabilizer polytope $\text{SP}$, which is the convex hull of the well-known stabilizer states; these include familiar states, such as Bell states and GHZ states. The updates of stabilizer states under Pauli measurements and Clifford unitaries (most familiar in the form of a tableau) can be translated into
+
+
+We demonstrate a prototype of our MagiQ Simulator

@@ -259,14 +259,22 @@ def qc_HTH_PBC():
     plt.title('Measurement Outcomes')
     plt.show()
 
-def magic_sim_HTH(initial_distribution,measurements,shots):
+
+def magic_sim_HTH(initial_distribution, measurements, shots):
     outcome_counts = [simulate_from_distribution(initial_distribution, measurements[m], shots) for m in range(len(measurements))]
 
-    # Plot the outcomes
-    plt.bar(outcome_counts.keys(), outcome_counts.values())
-    plt.xlabel('Outcome')
-    plt.ylabel('Frequency')
-    plt.title('Measurement Outcomes')
+    # Create subplots
+    num_measurements = len(measurements)
+    fig, axes = plt.subplots(num_measurements, 1, figsize=(10, 5 * num_measurements))
+
+    # Plot each histogram
+    for i, counts in enumerate(outcome_counts):
+        axes[i].bar(counts.keys(), counts.values())
+        axes[i].set_xlabel('Outcome')
+        axes[i].set_ylabel('Frequency')
+        axes[i].set_title(f'Measurement Outcomes for measurement {measurements[i]}')
+
+    plt.tight_layout()
     plt.show()
 
     return outcome_counts
